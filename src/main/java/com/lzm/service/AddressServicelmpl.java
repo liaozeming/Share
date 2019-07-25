@@ -100,7 +100,7 @@ public class AddressServicelmpl implements AddressService {
         AddressExample addressExample=new AddressExample();
         addressExample.or().andUseridEqualTo(userId).andIsdefaultEqualTo("1");
         List<Address> addresses = addressMapper.selectByExample(addressExample);
-        if (addresses.size()==0)
+        if (addresses.size()!=0)
         {
             addressList.get(0).setIsdefault("1");
             addressMapper.updateByPrimaryKey(addressList.get(0));

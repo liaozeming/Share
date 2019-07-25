@@ -28,9 +28,9 @@ public class UploadController {
         Map<String, Object> map = new HashMap<>();
         map.put("code", 1);
         if (file != null && file.getOriginalFilename() != null && file.getOriginalFilename().length() > 0) {
-//            String filepath="D:\\upload\\";
+            String filepath="D:\\upload\\";
             //服务器上路径
-               String filepath="/upload/";
+//               String filepath="/upload/";
             String originalFilename = file.getOriginalFilename();
             //扩展名
             String extendName = originalFilename.substring(originalFilename.indexOf("."));
@@ -63,8 +63,8 @@ public class UploadController {
             String uuid = UUID.randomUUID().toString();
             String newName = uuid + extName;
             // 4.获取要保存的路径文件夹
-//           String realPath="D:\\upload\\";
-           String realPath="/upload/";
+           String realPath="D:\\upload\\";
+//           String realPath="/upload/";
             // 5.保存
             desFilePath = realPath + "\\" + newName;
             File desFile = new File(desFilePath);

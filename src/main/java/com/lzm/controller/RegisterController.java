@@ -30,7 +30,7 @@ public class RegisterController {
 
 
 //注册新用户
-@RequestMapping(value="/RegisterUser.action",method = RequestMethod.POST)
+@RequestMapping(value="/RegisterUserlogin.action",method = RequestMethod.POST)
 @ResponseBody
 public String Register(@RequestBody User user)
 {

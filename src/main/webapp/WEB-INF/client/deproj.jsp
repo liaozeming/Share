@@ -247,6 +247,11 @@
                 <label class="pj_unit">元</label>
             </dd>
             <dd class="clearfix">
+                <span class="proj_inf">回报市场价：</span>
+                <input class="proj_name1" type="text" name="backmoney" placeholder="" />
+                <label class="pj_unit">元</label>
+            </dd>
+            <dd class="clearfix">
                 <span class="proj_inf">回报内容：</span>
                 <textarea class="proj_brief" name="backcontent" maxlength="200" placeholder="简单介绍一下你的项目，不超过200个字"></textarea>
             </dd>

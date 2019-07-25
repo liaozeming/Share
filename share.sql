@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50540
 File Encoding         : 65001
 
-Date: 2019-07-25 09:50:46
+Date: 2019-07-25 15:17:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -50,13 +50,13 @@ CREATE TABLE `address` (
   `provinceid` int(11) NOT NULL,
   `cityid` int(11) DEFAULT NULL,
   `streetid` int(11) DEFAULT NULL,
-  `isdefault` varchar(20) DEFAULT '否' COMMENT '默认的为1',
+  `isdefault` varchar(20) DEFAULT '1' COMMENT '1：默认地址',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `addprovince` (`provinceid`) USING BTREE,
   KEY `cityid` (`cityid`) USING BTREE,
   KEY `streetid` (`streetid`) USING BTREE,
   KEY `userid` (`userid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of address
@@ -64,6 +64,7 @@ CREATE TABLE `address` (
 INSERT INTO `address` VALUES ('15', '1', '廖泽铭', '17679210786', '435400', '南昌大学青山湖校区', '1', '4', '4', '1');
 INSERT INTO `address` VALUES ('19', '6', 'qwe', 'qwe', 'qe', 'qwe', '1', '1', '1', '1');
 INSERT INTO `address` VALUES ('20', '8', '刘', '1233213', '311234', '南昌大学', '1', '1', '1', '1');
+INSERT INTO `address` VALUES ('23', '21', '1241241', '42142', '42142', '42142214', '1', '1', '1', '1');
 
 -- ----------------------------
 -- Table structure for city
@@ -97,7 +98,7 @@ CREATE TABLE `collections` (
   PRIMARY KEY (`id`) USING BTREE,
   KEY `fk_collection_users` (`userid`) USING BTREE,
   KEY `fk_collection_project` (`projectid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of collections
@@ -122,7 +123,7 @@ CREATE TABLE `comment` (
   PRIMARY KEY (`id`) USING BTREE,
   KEY `fk_comment_users` (`userid`) USING BTREE,
   KEY `fk_comment_project` (`projectid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of comment
@@ -134,6 +135,7 @@ INSERT INTO `comment` VALUES ('17', '1', '32', 'asdasdasd', '普通众筹', '201
 INSERT INTO `comment` VALUES ('18', '1', '34', '很好用啊', '普通众筹', '2019-07-24 18:47:33', 'f167eb8b-25a8-408f-90a2-bdfd8a3d4ca2.jpeg,b69462a5-dfe8-43ad-8904-6bf9b2fc578b.jpg,');
 INSERT INTO `comment` VALUES ('19', '1', '32', '很好用啊 xxxxxxxxxx', '普通众筹', '2019-07-25 09:28:18', '4f184170-b77e-44cd-88e1-bdb0f3067356.jpg,5e9fbc7b-e1c3-4d65-b86a-2b3c96913c0d.jpg,');
 INSERT INTO `comment` VALUES ('20', '1', '41', '非常以及特别的好', '普通众筹', '2019-07-25 09:44:25', 'ad3dc07f-1180-4492-bd13-4dbdca2109af.jpg,8bbf0643-296c-4da1-a027-da17544650a3.jpg,eb8c939f-4e3b-4c55-9b00-4814d9ec6825.jpg,');
+INSERT INTO `comment` VALUES ('21', '21', '36', 'hhahah', '普通众筹', '2019-07-25 15:00:11', '0d66c9c0-b49f-443a-8326-123d65172e70.jpg,');
 
 -- ----------------------------
 -- Table structure for kind
@@ -212,6 +214,9 @@ INSERT INTO `orders` VALUES ('2019720175834885', '1', '15', '36', '1', '169', '0
 INSERT INTO `orders` VALUES ('2019720181353669', '1', '15', '50', '1', '689', '1', '');
 INSERT INTO `orders` VALUES ('20197211813831', '1', '15', '34', '1', '110', '1', '123456');
 INSERT INTO `orders` VALUES ('2019724143756871', '1', '15', '45', '1', '10', '0', '');
+INSERT INTO `orders` VALUES ('2019725145358688', '21', '23', '34', '1', '110', '0', '');
+INSERT INTO `orders` VALUES ('2019725145652340', '21', '23', '38', '1', '299', '0', '');
+INSERT INTO `orders` VALUES ('2019725145924447', '21', '23', '36', '1', '169', '1', '');
 INSERT INTO `orders` VALUES ('201972594650545', '1', '15', '42', '1', '49', '1', '');
 
 -- ----------------------------
@@ -253,7 +258,7 @@ CREATE TABLE `project` (
   KEY `fk_project_users` (`userid`) USING BTREE,
   KEY `fk_project_type` (`typeid`) USING BTREE,
   KEY `fk_project_kind` (`kindid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of project
@@ -279,7 +284,7 @@ INSERT INTO `project` VALUES ('49', '7', '0', '1', '贝蒂×刀刀狗 寻梦记'
 INSERT INTO `project` VALUES ('50', '7', '0', '2', '生态小白鞋', 'EcoCare产品的每一个环节每一个步 骤都以此为出发点，这是我们的梦想和理念，我们要让产品去说话去证明，我们 将为此竭尽全力', ':众筹结束后，我们会公示公益行为，精准用在学校图书馆/学生曰用品等。 大部分的利润会用在新产品的研发上面，为下一次公益行动（比如植t对等）做准 备。 一个产品，匠心做◊这就是曾小白', '', '众筹不是商品交易。支持者根据自己的判断选择、支持众筹项目，与发起人共同实现梦想并获得发起人承诺的回报，众筹存在一定风险。', '072c6339-ed2f-4010-81cc-c1bb33c66fff.jpg', 'ba8071cf-a189-4ebc-8a42-24b59ab64209.jpg,8f62a7f2-b08f-46f1-9e52-8ae617d96542.jpg,3bf79a31-b39e-4b1e-9bca-49800bb1dd0b.jpg,8bd1d930-555a-4603-8f03-f07dc2fda506.jpg,ab247294-5908-43db-aa39-25cf06e25e05.jpg,', '1031355.00', '679.00', '0.00', '生态小白鞋1双 （亮蓝色、明黄色、生态白、绿茶色，四色可选）', 'ba8071cf-a189-4ebc-8a42-24b59ab64209.jpg,8f62a7f2-b08f-46f1-9e52-8ae617d96542.jpg,3bf79a31-b39e-4b1e-9bca-49800bb1dd0b.jpg,8bd1d930-555a-4603-8f03-f07dc2fda506.jpg,ab247294-5908-43db-aa39-25cf06e25e05.jpg,78643382-62c7-4ccc-972f-1b9a619796f1.jpg,', '30', '10.00', '2', '2019-07-14 15:31:20', '2019-08-02 00:00:00', '1', '0', '1', '100', '0', '1', 'GEEKUP', '深圳市极客优品科技有限公司针对电商运营服务,电商解决方案，打造成电子商务一体化的品牌服务，专注塑造品牌力量、整合创意的无限可能，为传统品牌客户提供产品设计、品牌推广、电子商务运营、视频制作、众筹黑科技、搜索优化、客户管理与维护、店铺营销策划、 日常运营等一站式电商解决方案。', '13825761769');
 INSERT INTO `project` VALUES ('51', '7', '0', '3', '滕氏布糊画 助力残疾人就业', '画如其名，就是用布糊的画。但这布绝非是普通衣料的布，画也不是我们常见的布贴画。布糊画用料非常讲究，以各色真丝面料为主，佐之以纸板、珠花、海绵、绢花、首饰和金丝银线等辅料', '滕氏布糊画传承人滕桂岩在制作布糊画的十余年间里，创作出一幅幅栩栩如生的作品，还帮助一批残障人士找到了谋生之路', '', '众筹不是商品交易。支持者根据自己的判断选择、支持众筹项目，与发起人共同实现梦想并获得发起人承诺的回报，众筹存在一定风险。', 'ddf676de-2f24-4816-9391-d6328d9018f9.jpg', '937850e0-83b7-41a0-910a-4a9e0d374fa4.jpg,5486399a-bf14-44f3-963e-e7899f61305d.jpg,25b417e6-0a9e-4e81-b047-3be8f9ca858e.jpg,', '11615.00', '220.00', '0.00', '可获得七寸布糊画生肖瓷盘一个，请标注你选择布糊画的产品编号（该产品包邮只限于中国大陆地区、港、澳、台除外）', '937850e0-83b7-41a0-910a-4a9e0d374fa4.jpg,5486399a-bf14-44f3-963e-e7899f61305d.jpg,25b417e6-0a9e-4e81-b047-3be8f9ca858e.jpg,f9d8b4c9-8f8e-45e4-99bc-793beaf4ffc1.jpg,', '30', '0.00', '3', '2019-07-14 15:35:10', '2019-07-29 00:00:00', '1', '0', '1', '6', '0', '1', '北京艺能爱心基金会', '北京艺能爱心基金会于2012年成立。拟打造一个可持续发展的公益平台，为社会公益人士及企业、志愿者团队提供一个公开、诚信、共享、互益的公益环境，从而实现对社会弱势群体的扶持和资助。 基金会的资助范围包括：支教助学、扶老助残、救灾救济、公益援助、组织志愿服务等。 基金会一贯秉承“让爱心传递的更远”的宗旨', '0000-1111');
 INSERT INTO `project` VALUES ('58', '1', '0', '2', 'hahah', 'xxxxxxxx', 'adasad', 'qwewqe', 'ewqewqweq', 'e689e336-4ecb-4cf7-91c6-248846929644.jpg', '5a3a3113-232c-489a-8527-10f80e198022.jpg,5ac6e0e9-dc27-48fa-a023-64af959b9f18.jpg,94c7db87-217a-40fa-8e64-e17fa7a8ad8a.jpg,0ed30a3e-4bcd-473c-9c6a-3fe9501ac434.jpg,', '11222.00', '112.00', '12.00', '213', '5a3a3113-232c-489a-8527-10f80e198022.jpg,5ac6e0e9-dc27-48fa-a023-64af959b9f18.jpg,94c7db87-217a-40fa-8e64-e17fa7a8ad8a.jpg,0ed30a3e-4bcd-473c-9c6a-3fe9501ac434.jpg,5a553807-0ed2-4973-966b-660cb7b83516.jpg,add6fec2-a7cc-4e78-abe9-29e31d5910a4.jpg,b8b4be20-e9bc-4953-8a26-2bd5490787c5.jpg,182185d4-e370-462e-9556-b23ecda57937.jpg,', '30', '11.00', '1', '2019-07-24 16:53:01', '2019-07-26 00:00:00', '1', '1', '0', '0', '0', '1', 'weq', 'qew', 'qwe');
-INSERT INTO `project` VALUES ('59', '1', '1', '2', 'qqqqqqqqq', 'qqqqq', 'qqqqqqq', 'https://vod.300hu.com/4c1f7a6atransbjngwcloud1oss/538f2612206455827367272449/v.f30.mp4', 'aaaa', '6d67d174-9aff-4ab4-ab11-0c22c994d08e.jpg', '5cbc6edd-ebe5-4978-a177-92b784f67d6f.jpg,c3e5b567-5c34-4c27-b1ee-41fb3d121d78.jpg,d845f868-2b0f-42ed-9515-1783a408ac0a.jpg,443339d2-1826-4056-a372-2d3ac2bc6ee8.jpg,1b600c9f-8cbc-42c3-a0fd-7e6b8f8ebc69.jpg,', '123.00', '123.00', null, '213', '5cbc6edd-ebe5-4978-a177-92b784f67d6f.jpg,c3e5b567-5c34-4c27-b1ee-41fb3d121d78.jpg,d845f868-2b0f-42ed-9515-1783a408ac0a.jpg,443339d2-1826-4056-a372-2d3ac2bc6ee8.jpg,1b600c9f-8cbc-42c3-a0fd-7e6b8f8ebc69.jpg,2fc709a9-b668-41f2-9f90-a0c5207950e8.jpg,7886e2c5-6e14-445d-bdc4-56f710600e38.jpg,', '30', '11.00', '1', '2019-07-25 09:46:13', '2019-07-31 00:00:00', '0', '1', '0', '0', '0', '1', 'aaa', 'aaaaaaa', 'aaaaa');
+INSERT INTO `project` VALUES ('61', '21', '0', '2', '破鞋', '破鞋', '破鞋', 'https://jdvodoss.jcloudcache.com/vodtransgzp1251412368/9031868223098821885/v.f30.mp4', '破鞋', '524e879a-85d4-4a23-95f0-2e2390d67206.jpg', 'b8496cc5-af0f-4687-86f3-58fec17d66f8.jpg,3d8598af-3b11-4f1c-a7d7-d64e7a6e0234.jpg,5256dba4-0399-4aae-aa13-76a3b7f37add.jpg,f5b127ee-342c-484a-a1e2-7596c62f2e87.jpg,740c0ffb-02c1-41d5-a78b-08f4bef2d576.jpg,', '121323.00', '110.00', '120.00', '破鞋', 'b8496cc5-af0f-4687-86f3-58fec17d66f8.jpg,3d8598af-3b11-4f1c-a7d7-d64e7a6e0234.jpg,5256dba4-0399-4aae-aa13-76a3b7f37add.jpg,f5b127ee-342c-484a-a1e2-7596c62f2e87.jpg,740c0ffb-02c1-41d5-a78b-08f4bef2d576.jpg,eee272b6-3144-4389-877b-b3001f47f348.jpg,7d6de6fa-d24b-49dc-b49f-6dbcbd3a0588.jpg,', '30', '11.00', '1', '2019-07-25 15:13:41', '2019-07-31 00:00:00', '0', null, '0', '0', '0', '1', '168', '168', '168');
 
 -- ----------------------------
 -- Table structure for province
@@ -345,6 +350,7 @@ INSERT INTO `support` VALUES ('106', '1', '41', '1899.00', null, '1', null, null
 INSERT INTO `support` VALUES ('17', '1', '32', '200.00', '2019-07-19 22:31:15', '1', null, null, '');
 INSERT INTO `support` VALUES ('2019720181353669', '1', '50', '689.00', '2019-07-20 18:14:29', '1', null, null, '');
 INSERT INTO `support` VALUES ('20197211813831', '1', '34', '110.00', '2019-07-21 18:02:47', '1', null, null, '123456');
+INSERT INTO `support` VALUES ('2019725145924447', '21', '36', '169.00', '2019-07-25 14:59:53', '1', null, null, '');
 INSERT INTO `support` VALUES ('201972594650545', '1', '42', '49.00', '2019-07-25 09:47:42', '1', null, null, '');
 INSERT INTO `support` VALUES ('54', '1', '43', '50.00', '2019-07-19 22:59:38', '1', null, null, '');
 INSERT INTO `support` VALUES ('56', '1', '34', '110.00', '2019-07-19 23:00:46', '1', null, null, '');
@@ -386,14 +392,14 @@ CREATE TABLE `user` (
   `headimg` varchar(100) DEFAULT '1.jpg',
   `introduce` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('1', '廖泽铭', '17679210786', '17679210786', 'e10adc3949ba59abbe56e057f20f883e', null, '0', '0', '0', 'lzm', null, '4b033e7d-ff0b-4d72-857f-190d04466944.jpg', '哈哈哈');
 INSERT INTO `user` VALUES ('2', '余生臣', '17679210786', '17679210786', 'e10adc3949ba59abbe56e057f20f883e', '2019-07-22 09:54:05', '1', '0', '0', null, '1515151231221', '1.jpg', '哈哈哈哈啊哈哈哈哈哈');
-INSERT INTO `user` VALUES ('3', 'lzm123', '110', '17679210786', 'e10adc3949ba59abbe56e057f20f883e', null, '0', '0', '0', 'lzm', null, '4395d390-84ed-4296-9c6f-dfefab8e27f7.jpg', 'zzzzzzzz');
+INSERT INTO `user` VALUES ('3', 'lzm123', '110', '17679210786', '14e1b600b1fd579f47433b88e8d85291', null, '', '', '', 'lzm', null, '99ba9607-8f07-4349-a13a-44a40857fd10.jpg', 'zzzzzzzz');
 INSERT INTO `user` VALUES ('4', 'lzm', '13995929329', '3@qq.com', '81dc9bdb52d04dc20036dbd8313ed055', null, '0', '0', '0', '123', null, '', '2132321321');
 INSERT INTO `user` VALUES ('5', '廖泽铭12', '13995929309', '13298359847@qq.com', 'e10adc3949ba59abbe56e057f20f883e', null, '0', '0', '0', '廖泽铭', null, '', '哈哈哈');
 INSERT INTO `user` VALUES ('6', '213', '13996956565', '1329835847@qq.com', '123', '2019-07-23 11:02:56', '0', '0', '0', '123', '421182199903111790', '1.jpg', '123');
@@ -405,3 +411,4 @@ INSERT INTO `user` VALUES ('11', '8252', '13995629309', '1329835847@qq.com', '11
 INSERT INTO `user` VALUES ('12', '12', '17679210785', '123456789@qq.com', '123456', '2019-07-23 11:12:11', '0', '0', '0', '天', '421182199920111730', '1.jpg', '哈哈哈哈');
 INSERT INTO `user` VALUES ('13', '12334455', '17679210756', '13298@qq.com', '123456', '2019-07-23 11:16:35', '0', '0', '0', '123456', '421182199903111730', '1.jpg', 'zhhzhjz-janioaoif');
 INSERT INTO `user` VALUES ('14', '嘻嘻嘻', '15327714400', '132@qq.com', '231231', '2019-07-23 11:18:40', '0', '0', '0', '213', '421182199903111730', '1.jpg', 'asdddddddd');
+INSERT INTO `user` VALUES ('21', 'qian', '18702510384', '124', 'e10adc3949ba59abbe56e057f20f883e', '2019-07-25 14:40:46', '0', '0', '0', null, null, '1.jpg', '421');

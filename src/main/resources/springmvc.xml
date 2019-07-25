@@ -60,8 +60,6 @@
 			<mvc:interceptor>
 				<mvc:mapping path="/**"/>
 				<!-- 自定义的拦截器类 -->
-				<!--排除的路径-->
-				<!--<mvc:exclude-mapping path="/ToEditUser.action"/>-->
 				<bean class="com.lzm.interceptor.Interceptor1"/>
 			</mvc:interceptor>
 		</mvc:interceptors>

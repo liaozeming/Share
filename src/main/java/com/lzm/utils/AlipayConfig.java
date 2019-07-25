@@ -24,14 +24,14 @@ public class AlipayConfig {
     public static String alipay_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAik6rnRbRNKU1RxZ2qjc26qlxmhqOqcUbuWpvgXMoAGQQ1BHnrAHTKCsaPRs3g6FebkV4THPh7+0HAjBy7Z70HrM4jxsJkGhNy1yIk3hAVKUyZ8LGY9YiDWFnKIBVgK1VdCZp8jta3J1dmIJ9+Q+sDnDVdxAIE0lKhH/EHCvGHdeCSBCjgkinly3rRrQXqr3e4dD7RPLUNpkqeUoCSUPauEXaOM4I1G1hcJ/0fnYKqKK5tc6F1ypLUxYK4Uxv11oGfH1FXf7JizU++aHjj+6QQ6nKg4Oy9XAIfKuDPA/tUz5T9GiD83lVA2ZH4LCvuS76Ej3LEw+L1/fqxAAO9BSrpQIDAQAB";
 
     // 服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-    public static String notify_url = "http://www.liaozeming.cn:8080/Share/alipay_callback.action";
+//    public static String notify_url = "http://www.liaozeming.cn:8080/Share/alipay_callback.action";
 
-//    public static String notify_url = "http://localhost:8080/Share/alipay_callback.action";
+    public static String notify_url = "http://localhost:8080/Share/alipay_callback.action";
 
     // 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-    public static String return_url = "http://www.liaozeming.cn:8080/Share/alipay_callback.action";
+//    public static String return_url = "http://www.liaozeming.cn:8080/Share/alipay_callback.action";
 
-//    public static String return_url = "http://localhost:8080/Share/alipay_callback.action";
+    public static String return_url = "http://localhost:8080/Share/alipay_callback.action";
     // 签名方式
     public static String sign_type = "RSA2";
 

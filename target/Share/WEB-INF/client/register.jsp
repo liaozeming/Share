@@ -41,9 +41,9 @@
                     formObject[item.name] = item.value;
                 });
                 var data=JSON.stringify(formObject);
-                alert(data);
+                // alert(data);
                 $.ajax({
-                    url:'${pageContext.request.contextPath}/RegisterUser.action',
+                    url:'${pageContext.request.contextPath}/RegisterUserlogin.action',
                     type:'post',
                     // data表示发送的数据
                     data:data,

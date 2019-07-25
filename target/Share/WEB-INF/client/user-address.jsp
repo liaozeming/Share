@@ -98,7 +98,7 @@
 <div class="bomb bomb_address_wrapper" style="display:none;" id="formAddress">
     <div class="bomb_address clearfix">
         <div class="bomb_title clearfix">
-            <p class="fl">添加新地址</p>
+            <p class="fl">修改地址</p>
             <span class="close fr"></span>
         </div>
         <form id="address_add" method="post" >

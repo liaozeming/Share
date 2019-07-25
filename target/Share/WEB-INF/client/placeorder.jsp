@@ -319,7 +319,7 @@
                 }
             },
             error:function (data) {
-                alert("响应失败2");
+                alert("请先添加地址");
 
             }
         });
