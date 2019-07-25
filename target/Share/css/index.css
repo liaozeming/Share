@@ -1,0 +1,79 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*banner*/
+.carousel { position:absolute; width:100%; min-width:1190px;}
+.carousel_ul .carousel_bg { position:absolute; top:0; left:0; width:100%; height:400px;}
+.carousel_ul .carousel_img { position: absolute; top: 50px; left: 50%;margin: 0 auto 0 -595px; width: 1190px;height: 400px; box-shadow:0 5px 10px rgba(0,0,0,.1); }
+.carousel_span { width:100px;height:35px;position: absolute;left:50%; margin-left:-50px;top:420px;zoom:1;}
+.carousel_span span {width:15px;height:15px;display:block;float:left;margin-left:10px;background: url(../images/dot.png) no-repeat left bottom;}
+
+.carousel_span .carousel_span_one{background: url(../images/dot.png) no-repeat left top;}
+.carousel_left_right { position:absolute; left:50%; margin-left:-595px; width:1190px;}
+.carousel_left { position:absolute; left:0; top:205px; display:none;
+                 width:60px;height:90px;cursor: pointer; filter:alpha(opacity:50);opacity:0.5;
+				 background:#000 url(../images/ad_ctr.png) no-repeat 5px -180px; }
+.carousel_left1 { background:#000 url(../images/ad_ctr.png) no-repeat 3px top; }
+.carousel_right { width:60px; height:90px; cursor: pointer; background:#000 url(../images/ad_ctr.png) no-repeat -5px bottom; filter:alpha(opacity:50);opacity:0.5; position:absolute; right:0; top:205px; display:none;}
+.carousel_right1 {background:#000 url(../images/ad_ctr.png) no-repeat -3px -90px;}
+
+/*主体公用*/
+.main { margin:500px auto 0; width:1190px; }
+.main_header_bg { width:100%; height:13px; border-bottom:1px solid #ccc;}
+.main_header { margin:0 0 20px; position:relative; left:50%; top:-18px; background:#f8f8f8; text-align:center;
+               font-family:"arial","黑体"; font-size:28px; color:#000;}
+.free_header { width:260px; margin:0 0 0 -130px;}	
+.hot_header { width:430px; margin:0 0 0 -215px;}		   
+.main_header span { color:#666; font-size:22px;}
+/*免费试用*/
+.free ul li { width:296px; height:300px;}
+.free_one,.free_two,.free_three { margin-right:2px;}
+.free_one { background:url(../images/free_bg1.jpg);}
+.free_two { background:url(../images/free_bg2.jpg);}
+.free_three { background:url(../images/free_bg3.jpg);}
+.free_four { background:url(../images/free_bg4.jpg);}
+.free_title { width:100%; text-align:center; line-height:32px; margin-top:18px; font-size:32px; color:#0080ff;}
+.free_summary { width:100%; text-align:center; line-height:26px; font-size:18px; margin:16px 0 0; color:#999; font-weight:100;letter-spacing: 1px;}
+.free ul li .free_hover { display:none;  position:relative; top:102px; left:0; width:296px; height:80px; background-color:rgba(0,0,0,.2); transition:ease 0.5s;}
+.free ul li:hover .free_hover { display:block;}
+.free ul li .free_img { position:absolute; width:296px; height:160px; transition:ease 0.5s;}
+.free ul li:hover .free_img { transform: scale(1.1,1.1);}
+.button_apply { margin:25px 58px; width:180px; height:30px; background:#13b7e6; border:none; border-radius:15px; color:#fff; font-size:16px; cursor:pointer;}
+.button_apply:active { background:#0c7a99;}
+
+
+/*热门推荐*/
+.hot { margin:50px 0 0;}
+.hot_list { position:relative; margin:0 0 20px;}
+.hot_img { width:1190px; height:340px; position:relative; transition:ease .5s;}
+.hot_img:hover { transform:scale(1.01,1.01);}
+.hot_content { position:absolute; top:5px; right:0; padding:20px; width:555px; height:300px; background:#fff; border-radius:3px; box-shadow:0 5px 5px rgba(0,0,0,.3); transition:ease .5s;}
+.hot_content:hover { box-shadow:0 5px 5px rgba(255,128,128,.5);}
+.hot_tag { position:absolute; top:-5px; right:-5px; width:88px; height:88px;background:url(../images/tag.png) no-repeat;}
+.tag_conduct { background-position:left top;}
+.tag_preheat { background-position:left center;}
+.tag_finish {  background-position:left bottom;}
+.hot_title { font-size:20px; color:#000; line-height:20px; margin:0 0 20px;}
+.hot_summary { text-indent:2em; font-family:"宋体";  line-height:28px;}
+.hot_content ul { margin:25px 0 15px 0;}
+.hot_content ul li { width:33.33%; color:#999;}
+.hot_content ul li span { font-size:26px; color:#000;}
+.hot_money { text-align:left;}
+.hot_people { text-align:center;}
+.hot_time { text-align:right;}
+.hot_bar_wrapper { width:100%; height:8px; background:#eee; border-radius:4px; margin:0 0 30px;}
+.hot_bar { width:100%; height:8px; border-radius:4px;}
+.hot_rate_wrapper { font-size:20px;}
+.hot_rate { font-size:30px; color:#f3685d;}
+.hot_support { width:120px; height:40px; display:inline-block;background:url(../images/hot_support.png);}
+.hot_support:active { background:url(../images/hot_support.png) left bottom;}
+
+
+
+
+
+
+
+
+
+

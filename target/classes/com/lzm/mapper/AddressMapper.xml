@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lzm.mapper.AddressMapper" >
+  <resultMap id="BaseResultMap" type="com.lzm.pojo.Address" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="userid" property="userid" jdbcType="INTEGER" />
+    <result column="consignee" property="consignee" jdbcType="VARCHAR" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="postcard" property="postcard" jdbcType="VARCHAR" />
+    <result column="detailaddress" property="detailaddress" jdbcType="VARCHAR" />
+    <result column="provinceid" property="provinceid" jdbcType="INTEGER" />
+    <result column="cityid" property="cityid" jdbcType="INTEGER" />
+    <result column="streetid" property="streetid" jdbcType="INTEGER" />
+    <result column="isdefault" property="isdefault" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, userid, consignee, telephone, postcard, detailaddress, provinceid, cityid, streetid, 
+    isdefault
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lzm.pojo.AddressExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from address
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from address
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from address
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lzm.pojo.AddressExample" >
+    delete from address
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lzm.pojo.Address" >
+    insert into address (id, userid, consignee, 
+      telephone, postcard, detailaddress, 
+      provinceid, cityid, streetid, 
+      isdefault)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{consignee,jdbcType=VARCHAR}, 
+      #{telephone,jdbcType=VARCHAR}, #{postcard,jdbcType=VARCHAR}, #{detailaddress,jdbcType=VARCHAR}, 
+      #{provinceid,jdbcType=INTEGER}, #{cityid,jdbcType=INTEGER}, #{streetid,jdbcType=INTEGER}, 
+      #{isdefault,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lzm.pojo.Address" >
+    insert into address
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="consignee != null" >
+        consignee,
+      </if>
+      <if test="telephone != null" >
+        telephone,
+      </if>
+      <if test="postcard != null" >
+        postcard,
+      </if>
+      <if test="detailaddress != null" >
+        detailaddress,
+      </if>
+      <if test="provinceid != null" >
+        provinceid,
+      </if>
+      <if test="cityid != null" >
+        cityid,
+      </if>
+      <if test="streetid != null" >
+        streetid,
+      </if>
+      <if test="isdefault != null" >
+        isdefault,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="consignee != null" >
+        #{consignee,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="postcard != null" >
+        #{postcard,jdbcType=VARCHAR},
+      </if>
+      <if test="detailaddress != null" >
+        #{detailaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceid != null" >
+        #{provinceid,jdbcType=INTEGER},
+      </if>
+      <if test="cityid != null" >
+        #{cityid,jdbcType=INTEGER},
+      </if>
+      <if test="streetid != null" >
+        #{streetid,jdbcType=INTEGER},
+      </if>
+      <if test="isdefault != null" >
+        #{isdefault,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lzm.pojo.AddressExample" resultType="java.lang.Integer" >
+    select count(*) from address
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update address
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userid != null" >
+        userid = #{record.userid,jdbcType=INTEGER},
+      </if>
+      <if test="record.consignee != null" >
+        consignee = #{record.consignee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.telephone != null" >
+        telephone = #{record.telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.postcard != null" >
+        postcard = #{record.postcard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.detailaddress != null" >
+        detailaddress = #{record.detailaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.provinceid != null" >
+        provinceid = #{record.provinceid,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityid != null" >
+        cityid = #{record.cityid,jdbcType=INTEGER},
+      </if>
+      <if test="record.streetid != null" >
+        streetid = #{record.streetid,jdbcType=INTEGER},
+      </if>
+      <if test="record.isdefault != null" >
+        isdefault = #{record.isdefault,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update address
+    set id = #{record.id,jdbcType=INTEGER},
+      userid = #{record.userid,jdbcType=INTEGER},
+      consignee = #{record.consignee,jdbcType=VARCHAR},
+      telephone = #{record.telephone,jdbcType=VARCHAR},
+      postcard = #{record.postcard,jdbcType=VARCHAR},
+      detailaddress = #{record.detailaddress,jdbcType=VARCHAR},
+      provinceid = #{record.provinceid,jdbcType=INTEGER},
+      cityid = #{record.cityid,jdbcType=INTEGER},
+      streetid = #{record.streetid,jdbcType=INTEGER},
+      isdefault = #{record.isdefault,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lzm.pojo.Address" >
+    update address
+    <set >
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="consignee != null" >
+        consignee = #{consignee,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="postcard != null" >
+        postcard = #{postcard,jdbcType=VARCHAR},
+      </if>
+      <if test="detailaddress != null" >
+        detailaddress = #{detailaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceid != null" >
+        provinceid = #{provinceid,jdbcType=INTEGER},
+      </if>
+      <if test="cityid != null" >
+        cityid = #{cityid,jdbcType=INTEGER},
+      </if>
+      <if test="streetid != null" >
+        streetid = #{streetid,jdbcType=INTEGER},
+      </if>
+      <if test="isdefault != null" >
+        isdefault = #{isdefault,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lzm.pojo.Address" >
+    update address
+    set userid = #{userid,jdbcType=INTEGER},
+      consignee = #{consignee,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      postcard = #{postcard,jdbcType=VARCHAR},
+      detailaddress = #{detailaddress,jdbcType=VARCHAR},
+      provinceid = #{provinceid,jdbcType=INTEGER},
+      cityid = #{cityid,jdbcType=INTEGER},
+      streetid = #{streetid,jdbcType=INTEGER},
+      isdefault = #{isdefault,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

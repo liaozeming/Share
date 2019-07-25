@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+
+    <!-- 扫描@Controler  @Service   -->
+    <context:component-scan base-package="com.lzm"/>
+
+        <!-- 处理器映射器 -->
+<!--         <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/> -->
+        <!-- 处理器适配器 -->
+<!--         <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/> -->
+        <!-- 注解驱动 -->
+<!--        <mvc:annotation-driven conversion-service="conversionServiceFactoryBean"/>-->
+	<!--配置中的文件，不被前端控制器拦截-->
+<mvc:resources mapping="/js/**" location="/js/"/>
+
+	<!--解决@ResponseBody返回中文乱码问题-->
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html;charset=UTF-8</value>
+						<value>application/json;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+        <!-- 上传图片配置实现类 -->
+        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+            <!--设置请求编码格式-->
+			<property name="defaultEncoding" value="UTF-8" />
+			<!-- 上传图片的大小   B   2M  1*1024*1024*5-->
+			<property name="maxUploadSize" value="2097152" />
+        </bean>
+
+	<!-- 配置Conveter转换器  转换工厂  -->
+	<!--<bean id="conversionServiceFactoryBean" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">-->
+		<!--&lt;!&ndash; 配置 多个转换器&ndash;&gt;-->
+		<!--<property name="converters">-->
+			<!--<list>-->
+				<!--<bean class="com.lzm.conversion.DateConveter"/>-->
+			<!--</list>-->
+		<!--</property>-->
+	<!--</bean>-->
+
+		<!--&lt;!&ndash;SpringMVC拦截器&ndash;&gt;-->
+<!--&lt;!&ndash;-->
+			<!--&lt;!&ndash; 多个拦截器 &ndash;&gt;-->
+	<mvc:interceptors>
+			<mvc:interceptor>
+				<mvc:mapping path="/**"/>
+				<!-- 自定义的拦截器类 -->
+				<!--排除的路径-->
+				<!--<mvc:exclude-mapping path="/ToEditUser.action"/>-->
+				<bean class="com.lzm.interceptor.Interceptor1"/>
+			</mvc:interceptor>
+		</mvc:interceptors>
+
+        <!-- 视图解释器 去掉前后缀 -->
+        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        	<property name="prefix" value="/WEB-INF/"/>
+        	<property name="suffix" value=".jsp"/>
+        </bean>
+        
+   </beans>

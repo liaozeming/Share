@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+/*LOGO文字 即健康xxxx*/
+.logoTit{
+	font-size: 20px; 
+	color: #009688; 
+	font-weight: bold;
+}
+
+/*图标按钮*/
+.admin-side-toggle,.admin-side-full{
+	position: absolute; cursor: pointer;
+    z-index: 19940201;
+    left: 210px;
+    color: white;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    background-color: #1AA094;
+    line-height: 30px;
+    top: 25%;
+}
+.admin-side-toggle:hover{
+	background-color: #5FB878;
+}
+/*距离左侧按钮偏移一点距离*/
+.admin-side-full{
+	left: 250px;
+}
+/*调节图标按钮覆盖导航内容*/
+.navBarMargin{
+	margin-left: 60px;
+}

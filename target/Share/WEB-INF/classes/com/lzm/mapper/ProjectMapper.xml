@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lzm.mapper.ProjectMapper" >
+  <resultMap id="BaseResultMap" type="com.lzm.pojo.Project" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="userid" property="userid" jdbcType="INTEGER" />
+    <result column="typeid" property="typeid" jdbcType="INTEGER" />
+    <result column="kindid" property="kindid" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="introduce" property="introduce" jdbcType="VARCHAR" />
+    <result column="detail" property="detail" jdbcType="VARCHAR" />
+    <result column="detailvido" property="detailvido" jdbcType="VARCHAR" />
+    <result column="rule" property="rule" jdbcType="VARCHAR" />
+    <result column="image" property="image" jdbcType="VARCHAR" />
+    <result column="imagelist" property="imagelist" jdbcType="VARCHAR" />
+    <result column="needmoney" property="needmoney" jdbcType="DOUBLE" />
+    <result column="supmoney" property="supmoney" jdbcType="DOUBLE" />
+    <result column="backmoney" property="backmoney" jdbcType="DOUBLE" />
+    <result column="backcontent" property="backcontent" jdbcType="VARCHAR" />
+    <result column="backimage" property="backimage" jdbcType="VARCHAR" />
+    <result column="backtime" property="backtime" jdbcType="INTEGER" />
+    <result column="sendmoney" property="sendmoney" jdbcType="DOUBLE" />
+    <result column="statue" property="statue" jdbcType="VARCHAR" />
+    <result column="startdate" property="startdate" jdbcType="TIMESTAMP" />
+    <result column="deadline" property="deadline" jdbcType="TIMESTAMP" />
+    <result column="isable" property="isable" jdbcType="CHAR" />
+    <result column="isticket" property="isticket" jdbcType="CHAR" />
+    <result column="isforbid" property="isforbid" jdbcType="CHAR" />
+    <result column="numsup" property="numsup" jdbcType="INTEGER" />
+    <result column="numcol" property="numcol" jdbcType="INTEGER" />
+    <result column="backtype" property="backtype" jdbcType="VARCHAR" />
+    <result column="teambrief" property="teambrief" jdbcType="VARCHAR" />
+    <result column="teamdetail" property="teamdetail" jdbcType="VARCHAR" />
+    <result column="teamtel" property="teamtel" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, userid, typeid, kindid, name, introduce, detail, detailvido, rule, image, imagelist, 
+    needmoney, supmoney, backmoney, backcontent, backimage, backtime, sendmoney, statue, 
+    startdate, deadline, isable, isticket, isforbid, numsup, numcol, backtype, teambrief, 
+    teamdetail, teamtel
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lzm.pojo.ProjectExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from project
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from project
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from project
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lzm.pojo.ProjectExample" >
+    delete from project
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lzm.pojo.Project" >
+    insert into project (id, userid, typeid, 
+      kindid, name, introduce, 
+      detail, detailvido, rule, 
+      image, imagelist, needmoney, 
+      supmoney, backmoney, backcontent, 
+      backimage, backtime, sendmoney, 
+      statue, startdate, deadline, 
+      isable, isticket, isforbid, 
+      numsup, numcol, backtype, 
+      teambrief, teamdetail, teamtel
+      )
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{typeid,jdbcType=INTEGER}, 
+      #{kindid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{introduce,jdbcType=VARCHAR}, 
+      #{detail,jdbcType=VARCHAR}, #{detailvido,jdbcType=VARCHAR}, #{rule,jdbcType=VARCHAR}, 
+      #{image,jdbcType=VARCHAR}, #{imagelist,jdbcType=VARCHAR}, #{needmoney,jdbcType=DOUBLE}, 
+      #{supmoney,jdbcType=DOUBLE}, #{backmoney,jdbcType=DOUBLE}, #{backcontent,jdbcType=VARCHAR}, 
+      #{backimage,jdbcType=VARCHAR}, #{backtime,jdbcType=INTEGER}, #{sendmoney,jdbcType=DOUBLE}, 
+      #{statue,jdbcType=VARCHAR}, #{startdate,jdbcType=TIMESTAMP}, #{deadline,jdbcType=TIMESTAMP}, 
+      #{isable,jdbcType=CHAR}, #{isticket,jdbcType=CHAR}, #{isforbid,jdbcType=CHAR}, 
+      #{numsup,jdbcType=INTEGER}, #{numcol,jdbcType=INTEGER}, #{backtype,jdbcType=VARCHAR}, 
+      #{teambrief,jdbcType=VARCHAR}, #{teamdetail,jdbcType=VARCHAR}, #{teamtel,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lzm.pojo.Project" >
+    insert into project
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="typeid != null" >
+        typeid,
+      </if>
+      <if test="kindid != null" >
+        kindid,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="introduce != null" >
+        introduce,
+      </if>
+      <if test="detail != null" >
+        detail,
+      </if>
+      <if test="detailvido != null" >
+        detailvido,
+      </if>
+      <if test="rule != null" >
+        rule,
+      </if>
+      <if test="image != null" >
+        image,
+      </if>
+      <if test="imagelist != null" >
+        imagelist,
+      </if>
+      <if test="needmoney != null" >
+        needmoney,
+      </if>
+      <if test="supmoney != null" >
+        supmoney,
+      </if>
+      <if test="backmoney != null" >
+        backmoney,
+      </if>
+      <if test="backcontent != null" >
+        backcontent,
+      </if>
+      <if test="backimage != null" >
+        backimage,
+      </if>
+      <if test="backtime != null" >
+        backtime,
+      </if>
+      <if test="sendmoney != null" >
+        sendmoney,
+      </if>
+      <if test="statue != null" >
+        statue,
+      </if>
+      <if test="startdate != null" >
+        startdate,
+      </if>
+      <if test="deadline != null" >
+        deadline,
+      </if>
+      <if test="isable != null" >
+        isable,
+      </if>
+      <if test="isticket != null" >
+        isticket,
+      </if>
+      <if test="isforbid != null" >
+        isforbid,
+      </if>
+      <if test="numsup != null" >
+        numsup,
+      </if>
+      <if test="numcol != null" >
+        numcol,
+      </if>
+      <if test="backtype != null" >
+        backtype,
+      </if>
+      <if test="teambrief != null" >
+        teambrief,
+      </if>
+      <if test="teamdetail != null" >
+        teamdetail,
+      </if>
+      <if test="teamtel != null" >
+        teamtel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="typeid != null" >
+        #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="kindid != null" >
+        #{kindid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="introduce != null" >
+        #{introduce,jdbcType=VARCHAR},
+      </if>
+      <if test="detail != null" >
+        #{detail,jdbcType=VARCHAR},
+      </if>
+      <if test="detailvido != null" >
+        #{detailvido,jdbcType=VARCHAR},
+      </if>
+      <if test="rule != null" >
+        #{rule,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null" >
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="imagelist != null" >
+        #{imagelist,jdbcType=VARCHAR},
+      </if>
+      <if test="needmoney != null" >
+        #{needmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="supmoney != null" >
+        #{supmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="backmoney != null" >
+        #{backmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="backcontent != null" >
+        #{backcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="backimage != null" >
+        #{backimage,jdbcType=VARCHAR},
+      </if>
+      <if test="backtime != null" >
+        #{backtime,jdbcType=INTEGER},
+      </if>
+      <if test="sendmoney != null" >
+        #{sendmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="statue != null" >
+        #{statue,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null" >
+        #{startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deadline != null" >
+        #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isable != null" >
+        #{isable,jdbcType=CHAR},
+      </if>
+      <if test="isticket != null" >
+        #{isticket,jdbcType=CHAR},
+      </if>
+      <if test="isforbid != null" >
+        #{isforbid,jdbcType=CHAR},
+      </if>
+      <if test="numsup != null" >
+        #{numsup,jdbcType=INTEGER},
+      </if>
+      <if test="numcol != null" >
+        #{numcol,jdbcType=INTEGER},
+      </if>
+      <if test="backtype != null" >
+        #{backtype,jdbcType=VARCHAR},
+      </if>
+      <if test="teambrief != null" >
+        #{teambrief,jdbcType=VARCHAR},
+      </if>
+      <if test="teamdetail != null" >
+        #{teamdetail,jdbcType=VARCHAR},
+      </if>
+      <if test="teamtel != null" >
+        #{teamtel,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lzm.pojo.ProjectExample" resultType="java.lang.Integer" >
+    select count(*) from project
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update project
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userid != null" >
+        userid = #{record.userid,jdbcType=INTEGER},
+      </if>
+      <if test="record.typeid != null" >
+        typeid = #{record.typeid,jdbcType=INTEGER},
+      </if>
+      <if test="record.kindid != null" >
+        kindid = #{record.kindid,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.introduce != null" >
+        introduce = #{record.introduce,jdbcType=VARCHAR},
+      </if>
+      <if test="record.detail != null" >
+        detail = #{record.detail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.detailvido != null" >
+        detailvido = #{record.detailvido,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rule != null" >
+        rule = #{record.rule,jdbcType=VARCHAR},
+      </if>
+      <if test="record.image != null" >
+        image = #{record.image,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imagelist != null" >
+        imagelist = #{record.imagelist,jdbcType=VARCHAR},
+      </if>
+      <if test="record.needmoney != null" >
+        needmoney = #{record.needmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.supmoney != null" >
+        supmoney = #{record.supmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.backmoney != null" >
+        backmoney = #{record.backmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.backcontent != null" >
+        backcontent = #{record.backcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.backimage != null" >
+        backimage = #{record.backimage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.backtime != null" >
+        backtime = #{record.backtime,jdbcType=INTEGER},
+      </if>
+      <if test="record.sendmoney != null" >
+        sendmoney = #{record.sendmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.statue != null" >
+        statue = #{record.statue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startdate != null" >
+        startdate = #{record.startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.deadline != null" >
+        deadline = #{record.deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isable != null" >
+        isable = #{record.isable,jdbcType=CHAR},
+      </if>
+      <if test="record.isticket != null" >
+        isticket = #{record.isticket,jdbcType=CHAR},
+      </if>
+      <if test="record.isforbid != null" >
+        isforbid = #{record.isforbid,jdbcType=CHAR},
+      </if>
+      <if test="record.numsup != null" >
+        numsup = #{record.numsup,jdbcType=INTEGER},
+      </if>
+      <if test="record.numcol != null" >
+        numcol = #{record.numcol,jdbcType=INTEGER},
+      </if>
+      <if test="record.backtype != null" >
+        backtype = #{record.backtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teambrief != null" >
+        teambrief = #{record.teambrief,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teamdetail != null" >
+        teamdetail = #{record.teamdetail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teamtel != null" >
+        teamtel = #{record.teamtel,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update project
+    set id = #{record.id,jdbcType=INTEGER},
+      userid = #{record.userid,jdbcType=INTEGER},
+      typeid = #{record.typeid,jdbcType=INTEGER},
+      kindid = #{record.kindid,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      introduce = #{record.introduce,jdbcType=VARCHAR},
+      detail = #{record.detail,jdbcType=VARCHAR},
+      detailvido = #{record.detailvido,jdbcType=VARCHAR},
+      rule = #{record.rule,jdbcType=VARCHAR},
+      image = #{record.image,jdbcType=VARCHAR},
+      imagelist = #{record.imagelist,jdbcType=VARCHAR},
+      needmoney = #{record.needmoney,jdbcType=DOUBLE},
+      supmoney = #{record.supmoney,jdbcType=DOUBLE},
+      backmoney = #{record.backmoney,jdbcType=DOUBLE},
+      backcontent = #{record.backcontent,jdbcType=VARCHAR},
+      backimage = #{record.backimage,jdbcType=VARCHAR},
+      backtime = #{record.backtime,jdbcType=INTEGER},
+      sendmoney = #{record.sendmoney,jdbcType=DOUBLE},
+      statue = #{record.statue,jdbcType=VARCHAR},
+      startdate = #{record.startdate,jdbcType=TIMESTAMP},
+      deadline = #{record.deadline,jdbcType=TIMESTAMP},
+      isable = #{record.isable,jdbcType=CHAR},
+      isticket = #{record.isticket,jdbcType=CHAR},
+      isforbid = #{record.isforbid,jdbcType=CHAR},
+      numsup = #{record.numsup,jdbcType=INTEGER},
+      numcol = #{record.numcol,jdbcType=INTEGER},
+      backtype = #{record.backtype,jdbcType=VARCHAR},
+      teambrief = #{record.teambrief,jdbcType=VARCHAR},
+      teamdetail = #{record.teamdetail,jdbcType=VARCHAR},
+      teamtel = #{record.teamtel,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lzm.pojo.Project" >
+    update project
+    <set >
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="typeid != null" >
+        typeid = #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="kindid != null" >
+        kindid = #{kindid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="introduce != null" >
+        introduce = #{introduce,jdbcType=VARCHAR},
+      </if>
+      <if test="detail != null" >
+        detail = #{detail,jdbcType=VARCHAR},
+      </if>
+      <if test="detailvido != null" >
+        detailvido = #{detailvido,jdbcType=VARCHAR},
+      </if>
+      <if test="rule != null" >
+        rule = #{rule,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null" >
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="imagelist != null" >
+        imagelist = #{imagelist,jdbcType=VARCHAR},
+      </if>
+      <if test="needmoney != null" >
+        needmoney = #{needmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="supmoney != null" >
+        supmoney = #{supmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="backmoney != null" >
+        backmoney = #{backmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="backcontent != null" >
+        backcontent = #{backcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="backimage != null" >
+        backimage = #{backimage,jdbcType=VARCHAR},
+      </if>
+      <if test="backtime != null" >
+        backtime = #{backtime,jdbcType=INTEGER},
+      </if>
+      <if test="sendmoney != null" >
+        sendmoney = #{sendmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="statue != null" >
+        statue = #{statue,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null" >
+        startdate = #{startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deadline != null" >
+        deadline = #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isable != null" >
+        isable = #{isable,jdbcType=CHAR},
+      </if>
+      <if test="isticket != null" >
+        isticket = #{isticket,jdbcType=CHAR},
+      </if>
+      <if test="isforbid != null" >
+        isforbid = #{isforbid,jdbcType=CHAR},
+      </if>
+      <if test="numsup != null" >
+        numsup = #{numsup,jdbcType=INTEGER},
+      </if>
+      <if test="numcol != null" >
+        numcol = #{numcol,jdbcType=INTEGER},
+      </if>
+      <if test="backtype != null" >
+        backtype = #{backtype,jdbcType=VARCHAR},
+      </if>
+      <if test="teambrief != null" >
+        teambrief = #{teambrief,jdbcType=VARCHAR},
+      </if>
+      <if test="teamdetail != null" >
+        teamdetail = #{teamdetail,jdbcType=VARCHAR},
+      </if>
+      <if test="teamtel != null" >
+        teamtel = #{teamtel,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lzm.pojo.Project" >
+    update project
+    set userid = #{userid,jdbcType=INTEGER},
+      typeid = #{typeid,jdbcType=INTEGER},
+      kindid = #{kindid,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      introduce = #{introduce,jdbcType=VARCHAR},
+      detail = #{detail,jdbcType=VARCHAR},
+      detailvido = #{detailvido,jdbcType=VARCHAR},
+      rule = #{rule,jdbcType=VARCHAR},
+      image = #{image,jdbcType=VARCHAR},
+      imagelist = #{imagelist,jdbcType=VARCHAR},
+      needmoney = #{needmoney,jdbcType=DOUBLE},
+      supmoney = #{supmoney,jdbcType=DOUBLE},
+      backmoney = #{backmoney,jdbcType=DOUBLE},
+      backcontent = #{backcontent,jdbcType=VARCHAR},
+      backimage = #{backimage,jdbcType=VARCHAR},
+      backtime = #{backtime,jdbcType=INTEGER},
+      sendmoney = #{sendmoney,jdbcType=DOUBLE},
+      statue = #{statue,jdbcType=VARCHAR},
+      startdate = #{startdate,jdbcType=TIMESTAMP},
+      deadline = #{deadline,jdbcType=TIMESTAMP},
+      isable = #{isable,jdbcType=CHAR},
+      isticket = #{isticket,jdbcType=CHAR},
+      isforbid = #{isforbid,jdbcType=CHAR},
+      numsup = #{numsup,jdbcType=INTEGER},
+      numcol = #{numcol,jdbcType=INTEGER},
+      backtype = #{backtype,jdbcType=VARCHAR},
+      teambrief = #{teambrief,jdbcType=VARCHAR},
+      teamdetail = #{teamdetail,jdbcType=VARCHAR},
+      teamtel = #{teamtel,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

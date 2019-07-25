@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lzm.mapper.SupportMapper" >
+  <resultMap id="BaseResultMap" type="com.lzm.pojo.Support" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="userid" property="userid" jdbcType="INTEGER" />
+    <result column="projectid" property="projectid" jdbcType="INTEGER" />
+    <result column="money" property="money" jdbcType="DOUBLE" />
+    <result column="starttime" property="starttime" jdbcType="TIMESTAMP" />
+    <result column="ispay" property="ispay" jdbcType="INTEGER" />
+    <result column="tryout" property="tryout" jdbcType="INTEGER" />
+    <result column="iswin" property="iswin" jdbcType="INTEGER" />
+    <result column="invitecode" property="invitecode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, userid, projectid, money, starttime, ispay, tryout, iswin, invitecode
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lzm.pojo.SupportExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from support
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from support
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from support
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lzm.pojo.SupportExample" >
+    delete from support
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lzm.pojo.Support" >
+    insert into support (id, userid, projectid, 
+      money, starttime, ispay, 
+      tryout, iswin, invitecode
+      )
+    values (#{id,jdbcType=VARCHAR}, #{userid,jdbcType=INTEGER}, #{projectid,jdbcType=INTEGER}, 
+      #{money,jdbcType=DOUBLE}, #{starttime,jdbcType=TIMESTAMP}, #{ispay,jdbcType=INTEGER}, 
+      #{tryout,jdbcType=INTEGER}, #{iswin,jdbcType=INTEGER}, #{invitecode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lzm.pojo.Support" >
+    insert into support
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="projectid != null" >
+        projectid,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="starttime != null" >
+        starttime,
+      </if>
+      <if test="ispay != null" >
+        ispay,
+      </if>
+      <if test="tryout != null" >
+        tryout,
+      </if>
+      <if test="iswin != null" >
+        iswin,
+      </if>
+      <if test="invitecode != null" >
+        invitecode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="projectid != null" >
+        #{projectid,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ispay != null" >
+        #{ispay,jdbcType=INTEGER},
+      </if>
+      <if test="tryout != null" >
+        #{tryout,jdbcType=INTEGER},
+      </if>
+      <if test="iswin != null" >
+        #{iswin,jdbcType=INTEGER},
+      </if>
+      <if test="invitecode != null" >
+        #{invitecode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lzm.pojo.SupportExample" resultType="java.lang.Integer" >
+    select count(*) from support
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update support
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userid != null" >
+        userid = #{record.userid,jdbcType=INTEGER},
+      </if>
+      <if test="record.projectid != null" >
+        projectid = #{record.projectid,jdbcType=INTEGER},
+      </if>
+      <if test="record.money != null" >
+        money = #{record.money,jdbcType=DOUBLE},
+      </if>
+      <if test="record.starttime != null" >
+        starttime = #{record.starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ispay != null" >
+        ispay = #{record.ispay,jdbcType=INTEGER},
+      </if>
+      <if test="record.tryout != null" >
+        tryout = #{record.tryout,jdbcType=INTEGER},
+      </if>
+      <if test="record.iswin != null" >
+        iswin = #{record.iswin,jdbcType=INTEGER},
+      </if>
+      <if test="record.invitecode != null" >
+        invitecode = #{record.invitecode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update support
+    set id = #{record.id,jdbcType=VARCHAR},
+      userid = #{record.userid,jdbcType=INTEGER},
+      projectid = #{record.projectid,jdbcType=INTEGER},
+      money = #{record.money,jdbcType=DOUBLE},
+      starttime = #{record.starttime,jdbcType=TIMESTAMP},
+      ispay = #{record.ispay,jdbcType=INTEGER},
+      tryout = #{record.tryout,jdbcType=INTEGER},
+      iswin = #{record.iswin,jdbcType=INTEGER},
+      invitecode = #{record.invitecode,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lzm.pojo.Support" >
+    update support
+    <set >
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="projectid != null" >
+        projectid = #{projectid,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="starttime != null" >
+        starttime = #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ispay != null" >
+        ispay = #{ispay,jdbcType=INTEGER},
+      </if>
+      <if test="tryout != null" >
+        tryout = #{tryout,jdbcType=INTEGER},
+      </if>
+      <if test="iswin != null" >
+        iswin = #{iswin,jdbcType=INTEGER},
+      </if>
+      <if test="invitecode != null" >
+        invitecode = #{invitecode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lzm.pojo.Support" >
+    update support
+    set userid = #{userid,jdbcType=INTEGER},
+      projectid = #{projectid,jdbcType=INTEGER},
+      money = #{money,jdbcType=DOUBLE},
+      starttime = #{starttime,jdbcType=TIMESTAMP},
+      ispay = #{ispay,jdbcType=INTEGER},
+      tryout = #{tryout,jdbcType=INTEGER},
+      iswin = #{iswin,jdbcType=INTEGER},
+      invitecode = #{invitecode,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

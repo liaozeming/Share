@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+
+.main { width:990px; margin:20px auto 0; padding:0 100px;}
+.main ul li { width:240px; line-height:60px; background:#2bd0f3; color:#fff; font-size:16px; margin:2px 0 0; text-align:center;}
+.main ul .about_us { background:#2bd0f3 url(../images/bg_help1.png) no-repeat 60px center; border-radius:10px 10px 0 0 ;}
+.main ul .course { background:#2bd0f3 url(../images/bg_help2.png) no-repeat 60px center;}
+.main ul .problem { background:#2bd0f3 url(../images/bg_help3.png) no-repeat 60px center;}
+.main ul .service { background:#2bd0f3 url(../images/bg_help4.png) no-repeat 60px center;}
+.main ul .rule { background:#2bd0f3 url(../images/bg_help5.png) no-repeat 60px center; border-radius: 0 0 10px 10px;}
+.main ul .help_now { background-color:#1e8fa6;}
+.help_content { padding:20px; width:700px; height:1000px; background:#fff; border:1px solid #eee; border-radius:10px;}
