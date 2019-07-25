@@ -11,6 +11,6 @@
     <title>待审核商品</title>
 </head>
 <body>
-待审核商品123
+待审核商品
 </body>
 </html>

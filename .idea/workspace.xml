@@ -7,7 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8739a0d1-8f35-4a05-877f-733750f4ab84" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Share/WEB-INF/admin/ProjectWaitCheck.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Share/WEB-INF/admin/ProjectWaitCheck.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -67,9 +69,10 @@
           <entry key="html" value="43" />
           <entry key="java" value="742" />
           <entry key="js" value="21" />
-          <entry key="jsp" value="509" />
+          <entry key="jsp" value="511" />
           <entry key="png" value="12" />
           <entry key="properties" value="4" />
+          <entry key="sql" value="1" />
           <entry key="ts" value="1" />
           <entry key="xml" value="52" />
         </counts>
@@ -80,9 +83,10 @@
           <entry key="HTML" value="43" />
           <entry key="Image" value="12" />
           <entry key="JAVA" value="742" />
-          <entry key="JSP" value="509" />
+          <entry key="JSP" value="511" />
           <entry key="JavaScript" value="21" />
           <entry key="Properties" value="4" />
+          <entry key="SQL" value="1" />
           <entry key="TypeScript" value="1" />
           <entry key="XML" value="52" />
         </counts>
@@ -94,8 +98,9 @@
           <entry key="html" value="14" />
           <entry key="java" value="12825" />
           <entry key="js" value="9" />
-          <entry key="jsp" value="17530" />
+          <entry key="jsp" value="17533" />
           <entry key="properties" value="5" />
+          <entry key="txt" value="22" />
           <entry key="xml" value="40" />
         </counts>
       </usages-collector>
@@ -104,9 +109,9 @@
           <entry key="CSS" value="74" />
           <entry key="HTML" value="21" />
           <entry key="JAVA" value="12825" />
-          <entry key="JSP" value="17461" />
+          <entry key="JSP" value="17464" />
           <entry key="JavaScript" value="9" />
-          <entry key="PLAIN_TEXT" value="26" />
+          <entry key="PLAIN_TEXT" value="48" />
           <entry key="Properties" value="5" />
           <entry key="RegExp" value="1" />
           <entry key="SQL" value="59" />
@@ -150,11 +155,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/ProjectWaitCheck.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+            <state relative-caret-position="125">
+              <caret line="5" column="63" lean-forward="true" selection-start-line="5" selection-start-column="63" selection-end-line="5" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -168,7 +173,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="263">
@@ -178,13 +183,26 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/ProductManage.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/UserManage.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-925">
-              <caret line="187" column="35" selection-start-line="187" selection-start-column="35" selection-end-line="187" selection-end-column="35" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="321">
+              <caret line="150" column="53" selection-start-line="150" selection-start-column="52" selection-end-line="150" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/share.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-75" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/addUser.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="101" column="29" selection-start-line="101" selection-start-column="29" selection-end-line="101" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -194,24 +212,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="502">
               <caret line="109" column="5" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lzm/controller/ProjectController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="566">
-              <caret line="51" column="64" selection-start-line="51" selection-start-column="64" selection-end-line="51" selection-end-column="64" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lzm/controller/UploadController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="36" column="75" selection-start-line="36" selection-start-column="75" selection-end-line="36" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -318,9 +318,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lzm/controller/UploadController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/ProductManage.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzm/service/ProjectServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/ProjectWaitCheck.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzm/controller/admin/AdminDispatherController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/ProjectWaitCheck.jsp" />
       </list>
     </option>
   </component>
@@ -374,11 +374,11 @@
     <option name="jreName" value="1.8" />
     <option name="vmOptions" value="-Dmaven.multiModuleProjectDirectory=$MAVEN_HOME" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="382" />
-    <option name="y" value="26" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="27" />
+    <option name="y" value="55" />
     <option name="width" value="1829" />
-    <option name="height" value="1088" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -550,15 +550,6 @@
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Share" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Share" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -574,7 +565,7 @@
     <property name="SearchEverywhereHistoryKey" value="ti&#9;PSI&#9;JAVA://com.lzm.mapper.CollectionsMapper" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564025662150" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564026171207" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com/lzm/test" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -726,8 +717,16 @@
       <workItem from="1563843669154" duration="10516000" />
       <workItem from="1563854222122" duration="8893000" />
       <workItem from="1563929859868" duration="25432000" />
-      <workItem from="1564016378940" duration="7350000" />
+      <workItem from="1564016378940" duration="7675000" />
     </task>
+    <task id="LOCAL-00001" summary="数据库资源 图片资源 war包">
+      <created>1564025864834</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1564025864834</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -757,7 +756,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="395020000" />
+    <option name="totallyTimeSpent" value="395345000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -769,10 +768,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="598" y="61" width="1463" height="870" extended-state="0" />
+    <frame x="62" y="-22" width="1463" height="864" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.61504424" visible="true" weight="0.22814499" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.61504424" visible="true" weight="0.22814499" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -782,7 +781,7 @@
       <window_info id="Web" order="7" sideWeight="0.19348268" side_tool="true" weight="0.21552879" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.303681" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986613" visible="true" weight="0.04874652" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986613" weight="0.04874652" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.28279883" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -794,7 +793,7 @@
       <window_info anchor="bottom" id="Messages" order="11" weight="0.14139941" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.3281471" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="14" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="14" visible="true" weight="0.3286517" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -815,14 +814,11 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="数据库资源 图片资源 war包" />
+    <option name="LAST_COMMIT_MESSAGE" value="数据库资源 图片资源 war包" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzm/controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lzm/controller/OrderController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-402">
@@ -904,16 +900,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-109">
           <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/addUser.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="101" column="29" selection-start-line="101" selection-start-column="29" selection-end-line="101" selection-end-column="29" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1028,13 +1014,6 @@
             <element signature="n#style#0;n#li#0;n#ul#0;n#li#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#0;n#ul#0;n#li#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/UserManage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="150" column="53" selection-start-line="150" selection-start-column="52" selection-end-line="150" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -1194,13 +1173,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/ProjectWaitCheck.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lzm/controller/admin/AdminDispatherController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
@@ -1208,10 +1180,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/share.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-75" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/addUser.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="101" column="29" selection-start-line="101" selection-start-column="29" selection-end-line="101" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="263">
           <caret line="64" column="60" selection-start-line="64" selection-start-column="60" selection-end-line="64" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/UserManage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="150" column="53" selection-start-line="150" selection-start-column="52" selection-end-line="150" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/ProjectWaitCheck.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="63" lean-forward="true" selection-start-line="5" selection-start-column="63" selection-end-line="5" selection-end-column="63" />
         </state>
       </provider>
     </entry>
